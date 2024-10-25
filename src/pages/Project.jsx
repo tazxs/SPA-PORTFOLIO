@@ -1,15 +1,22 @@
-import BtnGit from '../components/buttons/BtnGit/BtnGit';
-import img from '../img/projects/01-big.jpg';
+import { useParams } from 'react-router-dom';
 
-const Project = () => {
+import BtnGit from '../components/buttons/BtnGit/BtnGit';
+import {projects} from '../helpers/projectsList'
+
+
+
+const Project = ({image,title}) => {
+    const {id} = useParams();
+    const project = projects[id];
+    console.log(project.ImgBig);
+    
     return (
         <main className="section">
             <div className="container">
                 <div className="project-details">
-                    <h1 className="title-1">Video service</h1>
-
+                    <h1 className="title-1">{project.title}</h1>
                     <img
-                        src={img}
+                        src={project.ImgBig}
                         alt=""
                         className="project-details__cover"
                     />
